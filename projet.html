@@ -135,6 +135,25 @@
         </div>
         <br><br>
 
+   <h3>Classification d'images par apprentissage automatique et Deep Learning — Python / Keras / TensorFlow </h3>
+        <div class="row align-items-center">
+          <!-- Image -->
+          <div class="col-md-3 text-center">
+            <img src="images/echan.png" alt="rgpd" class="img-fluid rounded-3">
+          </div>
+          <!-- Texte -->
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">
+             Ce projet a consisté à concevoir et évaluer un système de classification d'images multiclasses en Python, en s'appuyant sur la base de données Wang : 1 000 images réparties en 10 catégories thématiques (Jungle, Plage, Monuments, Bus, Dinosaures, Éléphants, Fleurs, Chevaux, Montagne, Plats). L'objectif était de comparer deux paradigmes distincts — extraction de descripteurs experts versus apprentissage de représentations end-to-end — afin d'évaluer le gain apporté par le Deep Learning sur une tâche de reconnaissance visuelle standard.
+La première approche repose sur l'extraction de descripteurs FCTH (Fuzzy Color and Texture Histogram), encodant les caractéristiques visuelles de bas niveau (couleur et texture) de chaque image, puis sur leur classification via un réseau MLP (Perceptron Multicouche) implémenté avec Keras. Cette pipeline classique a atteint 80 % de précision sur l'ensemble de test, établissant une baseline solide.
+La seconde approche met en œuvre un réseau de neurones convolutionnel (CNN) entraîné de bout en bout, où les représentations discriminantes sont apprises directement depuis les pixels bruts. L'architecture a été optimisée à l'aide de techniques de régularisation (Dropout) et de l'optimiseur AdamW afin de maîtriser le surapprentissage et la variabilité induite par la taille réduite du jeu de données. Cette approche Deep Learning a atteint 87 % de précision en validation, soit un gain de +7 points sur la baseline descripteurs.
+Ces résultats confirment la supériorité des représentations apprises automatiquement par un CNN sur des descripteurs conçus manuellement, même dans un contexte de données limitées — à condition d'appliquer une stratégie de régularisation rigoureuse.
+              <a href="https://www.canva.com/design/DAGXge7R5DM/1E1oksEWXZtEm7eVLcVFPA/view?utm_content=DAGXge7R5DM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hddfadf68f6"
+                target="_blank">Voir le projet</a>
+
+          </div>
+        </div>
+        <br><br>
 
 
 
