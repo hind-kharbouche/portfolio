@@ -250,7 +250,7 @@ a:hover {
 
 .main-menu {
     display: flex;
-    height: 100vh;
+    height: 30vh;
     width: 100%;
     font-family: sans-serif;
   }
@@ -273,10 +273,11 @@ a:hover {
   
   .menu-column:hover a {
     transform: scale(1.1);
+
   }
   
   .projets {
-    background-color: #4ba1c8; /* bleu */
+    background-color: #3997c2; /* bleu */
   }
   
   .apropos {
@@ -286,4 +287,13 @@ a:hover {
   .bilan {
     background-color: #9a64c6; /* violet clair */
   }
-  
+  .stabilo {
+    
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.text-justify {
+    text-align: justify;
+}

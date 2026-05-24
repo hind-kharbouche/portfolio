@@ -10,12 +10,10 @@
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="stylesheet" href="banner.css">
   <!--cdncss link-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -24,19 +22,33 @@
 
   <!--style sheet-->
   <link rel="stylesheet" href="css/style.css">
-
   <link rel="stylesheet" href="css/banner.css">
 </head>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-item');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const year = btn.getAttribute('data-year');
+
+        projects.forEach(project => {
+          if (year === "all" || project.classList.contains(year)) {
+            project.style.setProperty('display', 'block', 'important');
+          } else {
+            project.style.setProperty('display', 'none', 'important');
+          }
+        });
+      });
+    });
+  });
+</script>
+
 <body>
 
-
-
-
-
-
   <nav class="navbar">
-    <a href="/css/banner.css" class="logo">MonSite</a>
     <ul>
       <li><a href="index.html">Accueil</a></li>
       <li><a href="propos.html">À propos</a></li>
@@ -44,451 +56,310 @@
       <li><a href="bilanperso.html">Bilan Personnel</a></li>
     </ul>
   </nav>
-  <br><br>
 
-  <section>
+  <section class="my-5">
     <div class="container">
-      <div class="banner rounded-4 p-5"
-        style="background-image: url(images/banner.png); background-size: cover ; background-repeat: no-repeat; background-position: center;">
+      <div class="banner rounded-4 p-5" style="background-image: url(images/banner.png); background-size: cover ; background-repeat: no-repeat; background-position: center;">
         <div class="text-content text-white py-5 my-5">
-          <p class="fs-4">Portfolio</p>
           <h1 class="display-1">PROJET</h1>
+
+          <!-- Structure modifiée pour étirer les boutons sur toute la largeur (w-100 et structure en grille responsive) -->
+          <div class="w-100 my-4">
+            <div class="row g-2 w-100 mx-0">
+              <div class="col-100 col-md-3">
+                <button class="btn btn-lg btn-outline-light filter-btn rounded-pill w-100" data-year="all">Tous les projets</button>
+              </div>
+              <div class="col-100 col-md-3">
+                <button class="btn btn-lg btn-outline-success filter-btn rounded-pill w-100" data-year="2025">Session 2025</button>
+              </div>
+              <div class="col-100 col-md-3">
+                <button class="btn btn-lg btn-outline-warning filter-btn rounded-pill w-100" data-year="2024">Session 2024</button>
+              </div>
+              <div class="col-100 col-md-3">
+                <button class="btn btn-lg btn-outline-danger filter-btn rounded-pill w-100" data-year="2023">Session 2023</button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5">
-    <div class="container">
-      <div class="rounded-4 p-5"
-        style="background-image: url(images/banner.png); background-size: cover ; background-repeat: no-repeat; background-position: center;color: white;">
-        <h3>
-          Missions réalisées en entreprise :
-        </h3>
-      </div>
-    </div>
-    </div>
-  </section>
-
-
-  <section>
+  <section class="mb-5">
     <div class="container d-flex flex-column gap-4">
-      <!-- Formation -->
-      <div class="bg-yellow p-4 rounded-4">
-        <h3>Missions au Sein de La Banque Postale :</h3>
+
+      <!-- 2025 - SQL NoSQL -->
+      <div class="project-item 2025 bg-yellow p-4 rounded-4">
+        <h3>Migration des données : de SQL vers un modèle NoSQL</h3>
         <div class="row align-items-center">
-          <!-- Texte -->
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              1. Gestion, Structuration, Fiabilisation et Optimisation des données<br>
-              2. Contribution aux activités de contrôle, d’analyse de données, gestion des incidents et pilotage<br>
-              3. Création de tableaux de bord interactifs et à la mise en place de solutions de visualisation des
-              données
-
-
-            </p>
+          <div class="col-md-3 text-center">
+            <img src="images/NOSQL.png" alt="nosql" class="img-fluid rounded-3">
           </div>
-  </section>
-
-
-
-
-  <section class="py-5">
-    <div class="container">
-      <div class="rounded-4 p-5"
-        style="background-image: url(images/banner.png); background-size: cover ; background-repeat: no-repeat; background-position: center;color: white;">
-        <h3>
-          Projet réalisés en formation :
-        </h3>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Ce projet traite de la modernisation du système de transport parisien en 2055. Après une tempête ayant perturbé la ville, la métropole cherche à mieux analyser les déplacements, suivre les incidents en temps réel et mesurer l’impact écologique. Les données étant stockées dans SQLite, un format devenu insuffisant pour gérer des flux en temps réel et des données de capteurs, la SAÉ vise à migrer l’ensemble vers MongoDB, une base NoSQL plus flexible. Le travail commence par des requêtes SQL pour analyser les données existantes (retards, incidents, pollution, nuisances sonores). Ces résultats servent de référence pour vérifier la migration. Une nouvelle organisation des données est ensuite pensée au format JSON, puis un script Python extrait, transforme et insère les données dans MongoDB. Une fois la migration effectuée, les mêmes analyses sont rejouées dans MongoDB pour valider la coherence des données. Le projet se termine par la création d’un tableau de bord interactif intégrant graphiques et cartes : retards moyens, émissions de CO₂, types de véhicules, pollution par quartier et visualisation des arrêts. Ce tableau de bord permet une lecture claire et opérationnelle du réseau de transport. Ce projet illustre la transition d’une base relationnelle vers un environnement NoSQL moderne, tout en offrant de nouveaux outils d’analyse utiles pour la gestion des transports urbains.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-  </section>
 
-
-  <section>
-
-
-    <div class="container d-flex flex-column gap-4">
-      <!-- Formation -->
-      <div class="bg-yellow p-4 rounded-4">
-        <h3>Description des Importations en Irlande (2010-2023) : </h3>
+      <!-- 2025 - Chatbot -->
+      <div class="project-item 2025 bg-yellow p-4 rounded-4">
+        <h3>Chatbot Portfolio basé sur RAG</h3>
         <div class="row align-items-center">
-          <!-- Image -->
           <div class="col-md-3 text-center">
-            <img src="images/echan.png" alt="rgpd" class="img-fluid rounded-3">
+            <img src="images/CHATBOT.png" alt="chatbot" class="img-fluid rounded-3">
           </div>
-          <!-- Texte -->
           <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              À l’aide d’Excel, j’ai réalisé une analyse statistique complète incluant l’étude des tendances, la
-              variabilité interannuelle, et les composantes saisonnières. Trois modèles de régression (linéaire,
-              exponentiel, quadratique) ont été comparés à travers des indicateurs comme le coefficient de détermination
-              et la somme des erreurs au carré. Le modèle quadratique, s’étant avéré le plus performant (R² = 0,84), a
-              été retenu pour établir des prévisions sur l’année 2024, ajustées avec des coefficients saisonniers
-              corrigés. Ce travail m’a permis de mobiliser des compétences en séries chronologiques et en modélisation
-              prédictive dans un contexte économique réel.
-              <a href="https://www.canva.com/design/DAGXge7R5DM/1E1oksEWXZtEm7eVLcVFPA/view?utm_content=DAGXge7R5DM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hddfadf68f6"
-                target="_blank">Voir le projet</a>
-
+            <p class="text-dark-emphasis">Ce projet consiste à créer un portfolio professionnel interactif sous la forme d’un chatbot intelligent. Au lieu de présenter mon parcours dans un document classique, j’ai conçu une application capable de répondre directement aux questions des visiteurs. Ils peuvent demander, par exemple, mes compétences, mes expériences, mes projets ou mon parcours, et l’agent IA leur répond de manière claire et personnalisée. Pour rendre cela possible, j’ai organisé toutes mes informations (formation, experiences, compétences, projets, activités) dans des fichiers structurés. L’application analyse ensuite ces documents et les transforme en données que l’IA peut comprendre et utiliser pour répondre de façon fiable. L’objectif est d’éviter les erreurs ou les réponses inventées : le chatbot s’appuie uniquement sur mes informations réelles. Techniquement, le système utilise une méthode appelée RAG, qui permet à l’IA de retrouver les passages pertinents dans mes documents avant de formuler une réponse. L’interface a été développée avec Streamlit, ce qui permet d’obtenir une application simple, moderne et agréable à utiliser. Le visiteur peut poser ses questions librement, voir l’historique de la conversation et naviguer facilement.</p>
+            <a href="https://github.com/hind-kharbouche/chat_bot_portfolio_hind" target="_blank">Voir le projet</a>
           </div>
         </div>
-        <br><br>
+      </div>
 
-   <h3>Classification d'images par apprentissage automatique et Deep Learning : </h3>
+      <!-- 2025 - IMA -->
+      <div class="project-item 2025 bg-yellow p-4 rounded-4">
+        <h3>Prévision de l’activité quotidienne d’IMA : une analyse statistique accessible et opérationnelle</h3>
         <div class="row align-items-center">
-          <!-- Image -->
           <div class="col-md-3 text-center">
-            <img src="images/reseau neurone.png" alt="rgpd" class="img-fluid rounded-3">
+            <img src="images/IMA.png" alt="ima" class="img-fluid rounded-3">
           </div>
-          <!-- Texte -->
           <div class="col-md-8">
-            <p class="text-dark-emphasis">
-             Ce projet a consisté à concevoir et évaluer un système de classification d'images multiclasses en Python, en s'appuyant sur la base de données Wang : 1 000 images réparties en 10 catégories thématiques (Jungle, Plage, Monuments, Bus, Dinosaures, Éléphants, Fleurs, Chevaux, Montagne, Plats). L'objectif était de comparer deux paradigmes distincts — extraction de descripteurs experts versus apprentissage de représentations end-to-end — afin d'évaluer le gain apporté par le Deep Learning sur une tâche de reconnaissance visuelle standard.
-             La première approche repose sur l'extraction de descripteurs FCTH (Fuzzy Color and Texture Histogram), encodant les caractéristiques visuelles de bas niveau (couleur et texture) de chaque image, puis sur leur classification via un réseau MLP (Perceptron Multicouche) implémenté avec Keras. Cette pipeline classique a atteint 80 % de précision sur l'ensemble de test, établissant une baseline solide.
-             La seconde approche met en œuvre un réseau de neurones convolutionnel (CNN) entraîné de bout en bout, où les représentations discriminantes sont apprises directement depuis les pixels bruts. L'architecture a été optimisée à l'aide de techniques de régularisation (Dropout) et de l'optimiseur AdamW afin de maîtriser le surapprentissage et la variabilité induite par la taille réduite du jeu de données. Cette approche Deep Learning a atteint 87 % de précision en validation, soit un gain de +7 points sur la baseline descripteurs.
-             Ces résultats confirment la supériorité des représentations apprises automatiquement par un CNN sur des descripteurs conçus manuellement, même dans un contexte de données limitées — à condition d'appliquer une stratégie de régularisation rigoureuse.
-              <a href="https://docs.google.com/document/d/1VQUE5ph-nL-2VZXOf0c0MYEIwhupd443HiimrOo_h0U/edit?tab=t.0"
-                target="_blank">Voir le projet</a>
-
+            <p class="text-dark-emphasis">Ce projet a pour but de comprendre comment évolue l’activité d’Inter Mutuelles Assistance (IMA). L’objectif est de prévoir, pour chaque jour de l’année 2025, combien de dossiers l’entreprise devra traiter. Cette prévision permet d’adapter les équipes et d’éviter les périodes de surcharge. Pour y parvenir, l’étude s’appuie sur une très grande base de données qui regroupe l’activité quotidienne de 2013 à 2024. L’analyse montre que certains moments de l’année génèrent beaucoup plus d’appels : les vacances scolaires, les jours fériés, les week‑ends et les mois d’été. L’année 2020, marquée par le Covid‑19, ne suit pas les tendances habituelles. Elle a donc été corrigée avec une méthode qui permet de reconstruire des valeurs réalistes. L’étude se concentre ensuite sur un type particulier d’intervention : celles qui ont lieu à plus de 50 km du domicile. Ce segment est plus stable et plus facile à prévoir que les autres. La base de données est enrichie avec des informations de calendrier (jours, mois, vacances, jours fériés), car ces éléments influencent fortement le nombre de dossiers. Deux modèles de prévision sont testés. Le premier, Elastic Net, donne des résultats corrects. Le second, XGBoost, est beaucoup plus précis : il repère mieux les variations, les pics d’activité et les effets de calendrier. C’est donc lui qui est retenu pour prédire l’activité de décembre 2024 à décembre 2025. Enfin, un tableau de bord Power BI est créé pour visualiser les données réelles, les prévisions et la comparaison entre les deux modèles. Cet outil permet de suivre l’activité, d’identifier les périodes sensibles et d’aider IMA à organiser ses équipes de manière plus efficace.</p>
+            <a href="https://docs.google.com/document/d/1_Etk1ZyN6jWoeXFugEDBY79DETaFw1YBIqcmXH6Wydo/edit?tab=t.0" target="_blank">Voir le projet</a>
           </div>
         </div>
-        <br><br>
+      </div>
 
-
-         <h3>Analyse socio-nutritionnelle & activité physique </h3>
+      <!-- 2025 - Images -->
+      <div class="project-item 2025 bg-yellow p-4 rounded-4">
+        <h3>Classification d'images par apprentissage automatique et Deep Learning :</h3>
         <div class="row align-items-center">
-          <!-- Image -->
           <div class="col-md-3 text-center">
-            <img src="images/qliksense.png" alt="rgpd" class="img-fluid rounded-3">
+            <img src="images/reseau neurone.png" alt="neurones" class="img-fluid rounded-3">
           </div>
-          <!-- Texte -->
           <div class="col-md-8">
-            <p class="text-dark-emphasis">
-            Dans le cadre de ce projet, j'ai conçu et développé une application Qlik Sense interactive portant sur un échantillon de 4 114 individus qualifiés par de multiples dimensions démographiques et comportementales.
-             L'objectif technique était d'exploiter pleinement le moteur associatif de Qlik en alignant et liant des tables de données hétérogènes — profils socio-professionnels, données géographiques par région, habitudes alimentaires et indicateurs d'activité physique — pour garantir une propagation des sélections instantanée sur l'ensemble du modèle.
-La phase de modélisation a été centrale : j'ai veillé à la cohérence des clés de liaison entre les tables afin d'éviter les synthetic keys et de préserver les performances du moteur associatif.
- J'ai ensuite développé un ensemble de mesures personnalisées en langage Qlik, notamment le calcul de l'écart entre l'apport énergétique réel et le métabolisme de base estimé,
-  les ratios de macronutriments exprimés en pourcentage, ainsi qu'une segmentation automatique de l'IMC en catégories cliniques. L'application a été structurée en trois feuilles analytiques progressives 
-  : une vue macro de la population pour cadrer les profils généraux, une feuille dédiée à l'analyse granulaire de la structure nutritionnelle croisée avec les occasions de consommation, et une troisième centrée sur la corrélation entre statut professionnel et volume d'activité physique. Des volets de filtrage avancés ont été intégrés sur l'ensemble des dimensions clés pour permettre une exploration libre et fluide sans rupture dans la navigation.
-              <a href="https://e22pbvajft8ym09.eu.qlikcloud.com/sense/app/bb7eb0b4-9495-491b-9c38-d9983dd0f042"
-                target="_blank">Voir le projet</a>
-
+            <p class="text-dark-emphasis">Ce projet a porté sur la conception et l’évaluation d’un système de classification d’images multiclasses en Python, en utilisant la base Wang composée de 1 000 images réparties en 10 catégories thématiques (jungle, plage, monuments, bus, dinosaures, éléphants, fleurs, chevaux, montagne, plats). L’objectif a été de comparer deux approches : l’utilisation de descripteurs visuels conçus manuellement et l’apprentissage de représentations automatiques via un modèle end‑to‑end, afin de mesurer l’apport du Deep Learning dans une tâche de reconnaissance visuelle. La première méthode s’est appuyée sur l’extraction de descripteurs FCTH (Fuzzy Color and Texture Histogram), qui capturent les informations de couleur et de texture. Ces vecteurs ont ensuite été classés à l’aide d’un réseau MLP implémenté avec Keras. Cette approche traditionnelle a atteint une précision de 80 %, constituant une baseline robuste. La seconde méthode a mobilisé un réseau de neurones convolutionnel entraîné directement à partir des pixels. L’architecture a été optimisée grâce à des techniques de régularisation (Dropout) et à l’optimiseur AdamW, afin de limiter le surapprentissage lié à la taille réduite du dataset. Le modèle CNN a obtenu 87 % de précision en validation, soit un gain de 7 points par rapport à la baseline. Ces résultats montrent que les représentations apprises automatiquement par un CNN surpassent les descripteurs manuels, même dans un contexte de données limitées, dès lors qu’une stratégie de régularisation adaptée est mise en place.</p>
+            <a href="https://docs.google.com/document/d/1VQUE5ph-nL-2VZXOf0c0MYEIwhupd443HiimrOo_h0U/edit?tab=t.0" target="_blank">Voir le projet</a>
           </div>
         </div>
-        <br><br>
+      </div>
 
-        <h3>Plan d'Éxperience (Recette de cookies):</h3>
+      <!-- 2025 - Qlik Sense -->
+      <div class="project-item 2025 bg-yellow p-4 rounded-4">
+        <h3>Analyse socio-nutritionnelle & activité physique</h3>
         <div class="row align-items-center">
-          <!-- Image -->
           <div class="col-md-3 text-center">
-            <img src="images/planexpe.png" alt="rgpd" class="img-fluid rounded-3">
+            <img src="images/qliksense.png" alt="qliksense" class="img-fluid rounded-3">
           </div>
-          <!-- Texte -->
           <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              Sous un groupe 2, il nous est demandé de mener un projet autour des plans d’expériences.
-              Le but est de comprendre comment différents facteurs influencent la qualité de cookies que nous préparons.
-              Nous avons choisi plusieurs facteurs comme la température de cuisson, le temps de cuisson, la quantité de
-              sucre, ou encore le type de chocolat utilisé.
+            <p class="text-dark-emphasis">Dans ce projet, j’ai développé une application Qlik Sense interactive basée sur un échantillon de 4 114 personnes, décrites par leurs caractéristiques démographiques, leurs habitudes alimentaires et leur niveau d’activité physique. L’objectif était de structurer ces données dans Qlik de façon cohérente pour profiter pleinement du moteur associatif, en reliant correctement les différentes tables afin d’éviter les synthetic keys et de garantir de bonnes performances.
 
-              Au lieu de tester toutes les combinaisons possibles, ce qui prendrait trop de temps, nous utilisons un
-              plan d’expériences pour organiser les essais de manière efficace. Cela nous permet de tirer des
-              conclusions fiables avec un nombre limité de tests.
+J’ai ensuite créé plusieurs mesures personnalisées, comme l’écart entre l’apport énergétique réel et le métabolisme de base estimé, les pourcentages de macronutriments ou encore une classification automatique de l’IMC.
+L’application s’organise en trois feuilles : une vue d’ensemble de la population, une analyse détaillée de la nutrition et des comportements alimentaires, et une dernière feuille centrée sur le lien entre statut professionnel et activité physique.
 
-              Une fois les cookies préparés, ils sont notés selon plusieurs critères (comme le goût ou la texture). On
-              utilise ensuite le langage R pour analyser les résultats grâce à des modèles de régression. Cela nous aide
-              à identifier quels facteurs ont le plus d’impact sur la note finale, et à mieux comprendre les
-              interactions entre eux.
-
-              <a href="https://etuunivpoitiersfr-my.sharepoint.com/:w:/g/personal/hind_kharbouche_etu_univ-poitiers_fr/ERuHp1LDqf9Ov6IOGauE64ABBiTW-0UBJBlRLRtAXJQtVw?e=uM6Vtm"
-                target="_blank">Voir le projet</a>
-
+Des filtres avancés ont été ajoutés pour permettre une exploration fluide et intuitive de toutes les dimensions du jeu de données.</p>
+            <a href="https://canva.link/f1123jliv8aak24" target="_blank">Voir le projet</a>
           </div>
         </div>
-        <br><br>
+      </div>
 
+      <!-- 2024 - Irlande -->
+      <div class="project-item 2024 bg-yellow p-4 rounded-4">
+        <h3>Description des Importations en Irlande (2010-2023) :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/echan.png" alt="irlande" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">À l’aide d’Excel, j’ai réalisé une analyse statistique complète incluant l’étude des tendances, la variabilité interannuelle, et les composantes saisonnières. Trois modèles de régression (linéaire, exponentiel, quadratique) ont été comparés à travers des indicateurs comme le coefficient de détermination et la somme des erreurs au carré. Le modèle quadratique, s’étant avéré le plus performant (R² = 0,84), a été retenu pour établir des prévisions sur l’année 2024, ajustées avec des coefficients saisonniers corrigés. Ce travail m’a permis de mobiliser des compétences en séries chronologiques et en modélisation prédictive dans un contexte économique réel.</p>
+            <a href="https://www.canva.com/design/DAGXge7R5DM/1E1oksEWXZtEm7eVLcVFPA/view?utm_content=DAGXge7R5DM" target="_blank">Voir le projet</a>
+          </div>
+        </div>
+      </div>
 
+      <!-- 2024 - McDonald's -->
+      <div class="project-item 2024 bg-yellow p-4 rounded-4">
+        <h3>Analyse SIG des McDonald’s en France</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/mcdonald.png" alt="mcdonald" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Le projet a consisté à analyser l’implantation des McDonald’s en France à l’aide d’un SIG, outil qui a permis de travailler sur la localisation, les distances et les zones d’influence. Cette approche a offert une lecture spatiale que les méthodes statistiques classiques n’ont pas fournie. L’étude nationale a mis en évidence les villes les plus dotées après une jointure spatiale entre les restaurants et les communes, puis un classement des résultats. Les ouvertures par année et par région ont été synthétisées dans un tableau croisé, révélant les périodes d’expansion du réseau. Une carte a représenté le nombre de McDonald’s pour 100 000 habitants, soulignant les départements les mieux et les moins bien desservis. La proximité avec les transports ferroviaires a été évaluée grâce à des tampons de 500 m autour des gares SNCF, des stations de métro et des gares IDFM, permettant de comptabiliser les restaurants accessibles à pied depuis ces infrastructures. Enfin, dans l’ex‑Poitou‑Charentes, la population située dans un rayon de 15 km autour de chaque restaurant a été calculée et représentée sous forme de cercles proportionnels, mettant en lumière les bassins de population potentiellement couverts. Ce travail a fourni une vision claire, territoriale et exploitable pour orienter les décisions des futurs franchisés.</p>
+            <a href="https://canva.link/njkyskm6ly1lb2m" target="_blank">Voir le projet</a>
+          </div>
+        </div>
+      </div>
 
+      <!-- 2024 - Cookies -->
+      <div class="project-item 2024 bg-yellow p-4 rounded-4">
+        <h3>Plan d'expérience (recette de cookies) :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/planexpe.png" alt="cookies" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Dans le cadre d'un groupe de 2, il nous est demandé de mener un projet autour des plans d’expériences. Le but est de comprendre comment différents facteurs influencent la qualité des cookies que nous préparons. Nous avons choisi plusieurs facteurs comme la température de cuisson, le temps de cuisson, la quantité de sucre, ou encore le type de chocolat utilisé. Au lieu de tester toutes les combinaisons possibles, ce qui prendrait trop de temps, nous utilisons un plan d’expériences pour organiser les essais de manière efficace. Cela nous permet de tirer des conclusions fiables avec un nombre limité de tests. Une fois les cookies préparés, ils sont notés selon plusieurs critères (comme le goût ou la texture). On utilise ensuite le langage R pour analyser les résultats grâce à des modèles de régression. Cela nous aide à identifier quels facteurs ont le plus d’impact sur la note finale, et à mieux comprendre les interactions entre eux.</p>
+            <a href="https://etuunivpoitiersfr-my.sharepoint.com/:w:/g/personal/hind_kharbouche_etu_univ-poitiers_fr/ERuHp1LDqf9Ov6IOGauE64ABBiTW-0UBJBlRLRtAXJQtVw?e=uM6Vtm" target="_blank">Voir le projet</a>
+          </div>
+        </div>
+      </div>
 
+      <!-- 2024 - RGPD -->
+      <div class="project-item 2024 bg-yellow p-4 rounded-4">
         <h3>Conformité réglementaire pour traiter et analyser des données :</h3>
         <div class="row align-items-center">
-
           <div class="col-md-3 text-center">
             <img src="images/rgpd.png" alt="rgpd" class="img-fluid rounded-3">
           </div>
-
           <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              Dans le cadre de ce projet réalisé en groupe de quatre, nous avons été placés dans la peau d’un Délégué à
-              la Protection des Données (DPO) avec pour mission de mettre en conformité les pratiques de traitement des
-              données d’une entreprise fictive selon le Règlement Général sur la Protection des Données (RGPD). Pour ce
-              faire, nous avons d’abord analysé la proportionnalité et la pertinence des données collectées, puis mis à
-              jour les contrats et les formulaires afin d’y intégrer les mentions légales nécessaires. Nous avons
-              également vérifié le recueil du consentement pour les données sensibles, supprimé les informations
-              superflues, mis en place des mesures de sécurité pour limiter l’accès aux données, et enfin créé un
-              registre des activités de traitement. Ce projet nous a permis d’appréhender concrètement les exigences du
-              RGPD et de développer une approche rigoureuse en matière de gestion des données personnelles. </p>
-            <a href="https://www.canva.com/design/DAGpIZS-BMY/F146txxvZivtPG1rIFvyEA/view?utm_content=DAGpIZS-BMY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hef43e66b37"
-              target="_blank">Voir le projet</a>
-
-          </div>
-        </div>
-
-
-        <br><br>
-
-
-        <h3>Techniques de sondage et méthodologie de l'enquête :</h3>
-        <div class="row align-items-center">
-
-          <div class="col-md-3 text-center">
-            <img src="images/enquete.png" alt="imagemavie" class="img-fluid rounded-3">
-          </div>
-
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              Dans le cadre du Forum National de l’Économie Sociale et Solidaire & de l’Innovation Sociale, qui s’est
-              déroulé en janvier 2024, une enquête a été menée auprès des participants, sur place et après l’événement.
-              Cette enquête avait pour objectifs de mieux comprendre le comportement des visiteurs, d’évaluer leur
-              satisfaction et d’identifier des axes d’amélioration pour les prochaines éditions du forum. Pour ce faire,
-              nous avons réalisé une présentation portant sur plusieurs aspects : les caractéristiques
-              sociodémographiques des répondants, leur comportement durant le forum, ainsi que leur avis sur l’édition
-              2024. L’analyse des résultats s’est appuyée sur la création de graphiques à l’aide du logiciel Sphinx,
-              permettant de visualiser les données de manière claire et synthétique. </p>
-            <a href=" https://www.canva.com/design/DAGRxYXo6Us/4aVKPGkJr_bpG6HeYA7-ZA/view?utm_content=DAGRxYXo6Us&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2616bed045"
-              target="_blank">Voir le projet</a>
-
-          </div>
-        </div>
-        <br><br>
-
-
-        <h3>Analyse de données, Reporting et datavisualisation:</h3>
-        <div class="row align-items-center">
-
-          <div class="col-md-3 text-center">
-            <img src="images/imagemavie.png" alt="imagemavie" class="img-fluid rounded-3">
-          </div>
-
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              Ce projet vise à créer un outil dynamique pour analyser les accidents de la vie courante (AcVC) en France,
-              en identifiant leurs caractéristiques et facteurs de risque, ainsi que des mesures de prévention. Nous
-              avons nettoyé et préparé les données avec R, puis cartographié la cohorte pour évaluer sa représentativité
-              par rapport à la population française, en utilisant PowerBI pour les visualisations. Ensuite, nous avons
-              conçu un outil intuitif et automatisé avec Python pour intégrer de nouveaux jeux de données. Enfin, nous
-              avons rédigé deux manuels : un manuel technique sur l'ergonomie de l'outil et un guide d'utilisation.
-            </p>
-          </div>
-          <br><br>
-
-
-          <h3>Régression des données réelles :</h3>
-          <div class="row align-items-center">
-
-            <div class="col-md-3 text-center">
-              <img src="images/regressionlin.png" alt="Analyse de données, Reporting et datavisualisation:"
-                class="img-fluid rounded-3">
-            </div>
-
-            <div class="col-md-8">
-              <p class="text-dark-emphasis">
-                Pour réaliser ce projet, j'ai d'abord importé et analysé les données d'un fichier CSV afin de comprendre
-                leur structure et de nettoyer les valeurs manquantes. Ensuite, j'ai développé un modèle de prédiction du
-                prix de vente à l'aide de régression linéaire dans Excel, identifiant les variables les plus influentes.
-                J'ai rédigé un texte explicatif incluant des graphiques comme des nuages de points pour illustrer les
-                relations entre les variables. Enfin, j'ai fourni le code R utilisé pour créer le modèle et générer les
-                prédictions, en détaillant chaque étape du processus, de l'importation des données à l'évaluation des
-                performances du modèle. </p>
-            </div>
-          </div>
-        </div>
-
-        <br><br>
-
-        <h3>Création d'un reporting :</h3>
-        <div class="row align-items-center">
-
-          <div class="col-md-3 text-center">
-            <img src="images/reporting.png" alt="Analyse de données, Reporting et datavisualisation:"
-              class="img-fluid rounded-3">
-          </div>
-
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              Pour créer une application de gestion des notes à l'aide d'Excel VBA, j'ai développé une interface
-              utilisateur conviviale permettant de saisir et de modifier les notes des étudiants via des formulaires et
-              des macros. J'ai ensuite mis en place un tableau dynamique qui affiche les notes de manière organisée et
-              se met à jour automatiquement. Pour automatiser la décision du jury à la fin de l'année, j'ai programmé
-              une macro qui calcule les moyennes des étudiants et détermine leur statut d'admission ou de rattrapage
-              selon des critères prédéfinis. Cette solution complète offre une gestion efficace et automatisée des notes
-              des étudiants.
-          </div>
-        </div>
-
-        <br><br>
-
-
-        <h3>Conception et implémentation BDR :</h3>
-        <div class="row align-items-center">
-
-          <div class="col-md-3 text-center">
-            <img src="images/bdr.png" alt="Analyse de données, Reporting et datavisualisation:"
-              class="img-fluid rounded-3">
-          </div>
-
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              Pour concevoir et implémenter un système de gestion des notes, j'ai d'abord créé un modèle conceptuel des
-              données (MCD) incluant les entités Étudiant, Cours, et Note, ainsi que leurs relations. J'ai ensuite
-              traduit ce modèle en un schéma relationnel (MLD) et généré le script SQL pour créer les tables
-              correspondantes dans MySQL. Après avoir créé la base de données, j'ai développé une interface graphique en
-              utilisant Tkinter avec Python. Cette interface permet d'importer les données des étudiants à partir d'un
-              fichier Excel, de les insérer dans la base de données, et d'automatiser la gestion des notes et la
-              décision du jury à la fin de l'année scolaire.
-          </div>
-        </div>
-        <br><br>
-
-
-        <h3>Challenge DATAVIZ :</h3>
-        <div class="row align-items-center">
-
-          <div class="col-md-3 text-center">
-            <img src="images/viz.png" alt="Analyse de données, Reporting et datavisualisation:"
-              class="img-fluid rounded-3">
-          </div>
-
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              Pour analyser les impacts du réchauffement climatique sur les régions montagneuses des Hautes-Alpes et des
-              Hautes-Pyrénées, j'ai d'abord extrait les données climatologiques du réseau de Météo France. En analysant
-              ces données, j'ai évalué les tendances de température et de précipitations sur plusieurs décennies.
-              Ensuite, j'ai utilisé Power BI pour créer des graphes illustrant les changements climatiques, tels que
-              l'augmentation des températures moyennes annuelles et la variation des précipitations saisonnières. Ces
-              graphes montrent clairement l'accélération du réchauffement climatique et ses effets spécifiques sur les
-              régions étudiées, comme la réduction de la couverture neigeuse et les risques accrus d'événements
-              météorologiques extrêmes. Lors de la présentation, j'ai expliqué chaque graphe en détail, mettant en
-              évidence les tendances observées et leurs implications pour l'environnement et les activités humaines dans
-              ces zones montagneuses.
-          </div>
-        </div>
-
-        <br><br>
-        <h3>Mise en Œuvre de l’enquête :</h3>
-        <div class="row align-items-center">
-
-          <div class="col-md-3 text-center">
-            <img src="images/sphinx.png" alt="Analyse de données, Reporting et datavisualisation:"
-              class="img-fluid rounded-3">
-          </div>
-
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              Pour mener à bien l'enquête sur le logement des étudiants de l'IUT de Poitiers, j'ai commencé par créer un
-              questionnaire complet à l'aide du logiciel Sphinx. Ce questionnaire abordait divers aspects du logement,
-              tels que le type de logement, les coûts associés, la distance par rapport à l'IUT, et le niveau de
-              satisfaction. Une fois le questionnaire conçu, j'ai diffusé l'enquête auprès des étudiants. Après la
-              collecte des données, j'ai importé les réponses dans le logiciel Sphinx pour leur analyse statistique.
-              J'ai utilisé les fonctionnalités d'analyse de Sphinx pour calculer les statistiques descriptives, telles
-              que les moyennes et les médianes, et pour effectuer des croisements de données afin de dégager des
-              tendances significatives. Enfin, j'ai utilisé les résultats de cette analyse pour créer un tableau de bord
-              interactif dans Sphinx, offrant une visualisation claire et concise des conclusions de l'enquête. Ce
-              tableau de bord a permis de présenter les principaux résultats, comme la répartition des types de logement
-              et les niveaux de satisfaction, facilitant ainsi la prise de décision et l'identification des axes
-              d'amélioration en matière de logement pour les étudiants de l'IUT de Poitiers.
-          </div>
-        </div>
-        <br><br>
-
-        <h3>Echantillonnage et Estimation :</h3>
-        <div class="row align-items-center">
-
-          <div class="col-md-3 text-center">
-            <img src="images/ech.png" alt="Analyse de données, Reporting et datavisualisation:"
-              class="img-fluid rounded-3">
-          </div>
-
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              On a réalisé ce projet pour explorer l'incertitude et la précision de l'estimation d'une population, en
-              utilisant un intervalle de confiance basé sur des processus d'échantillonnage. On s'est concentré sur la
-              région Hauts-de-France, en examinant le nombre d'habitants. De plus, on a cherché à vérifier la
-              corrélation entre la prime de voiture et d'autres variables telles que la marque, la formule et
-              l'ancienneté. Tout cela s'est fait à l'aide du langage de programmation R. On a effectué le processus
-              d'échantillonnage en utilisant un sondage aléatoire simple et un échantillonnage par strates. Les
-              estimations ont été comparées aux valeurs réelles pour évaluer leur précision. Enfin, on a utilisé le test
-              d'indépendance du khi-deux pour vérifier la corrélation entre la prime des voitures et diverses autres
-              variables. Un rapport a été rendu pour expliquer les différentes étapes suivies dans ce projet.
-          </div>
-        </div>
-
-        <br><br>
-
-        <h3>Production de données en Entreprise :​​​</h3>
-        <div class="row align-items-center">
-
-          <div class="col-md-3 text-center">
-            <img src="images/entrepr.png" alt="Analyse de données, Reporting et datavisualisation:"
-              class="img-fluid rounded-3">
-          </div>
-
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              L'objectif principal de ce projet est d'explorer la situation économique de la Martinique, en se
-              concentrant sur des aspects clés tels que la démographie, le chômage et l'emploi. Pour ce faire, nous
-              avons extrait des données détaillées d'un fichier Excel contenant des informations pertinentes sur ces
-              domaines. Ensuite, nous avons procédé à une analyse approfondie de ces données, en mettant l'accent sur
-              leur signification et leur interprétation. Enfin, nous avons rédigé un rapport exhaustif qui synthétise
-              nos découvertes et présente une vue d'ensemble de la situation socioéconomique actuelle de la Martinique.
-              Ce rapport vise à fournir une compréhension approfondie des tendances économiques et sociales de l'île, en
-              mettant en lumière les défis et les opportunités qui se présentent.
-          </div>
-        </div>
-
-
-        <br><br>
-
-        <h3>Présentation d'un territoire économique et culturel :​​​</h3>
-        <div class="row align-items-center">
-
-          <div class="col-md-3 text-center">
-            <img src="images/thai.png" alt="Analyse de données, Reporting et datavisualisation:"
-              class="img-fluid rounded-3">
-          </div>
-
-          <div class="col-md-8">
-            <p class="text-dark-emphasis">
-              Dans ce projet, nous avons choisi de présenter la Thaïlande en tant que territoire économique. Nous avons
-              exploré sa situation socio-économique et culturelle, en recherchant des données pertinentes et en les
-              utilisant efficacement pour fournir une analyse détaillée et enrichissante. Le projet se divise en deux
-              parties : la première partie, dédiée à l'analyse socio-économique, couvre la démographie, la situation
-              économique et la géographie de la Thaïlande, et a été présentée en anglais. La seconde partie, consacrée à
-              l'aspect culturel, aborde l'histoire, la culture, l'architecture de la Thaïlande, et présente également un
-              problème majeur auquel le pays est confronté : le surtourisme. Cette partie a été présentée en français.
+            <p class="text-dark-emphasis">Dans le cadre de ce projet réalisé en groupe de quatre, nous avons été placés dans la peau d’un Délégué à la Protection des Données (DPO) avec pour mission de mettre en conformité les pratiques de traitement des données d’une entreprise fictive selon le Règlement Général sur la Protection des Données (RGPD). Pour ce faire, nous avons d’abord analysé la proportionnalité et la pertinence des données collectées, puis mis à jour les contrats et les formulaires afin d’y intégrer les mentions légales nécessaires. Nous avons également vérifié le recueil du consentement pour les données sensibles, supprimé les informations superflues, mis en place des mesures de sécurité pour limiter l’accès aux données, et enfin créé un registre des activités de traitement. Ce projet nous a permis d’appréhender concrètement les exigences du RGPD et de développer une approche rigoureuse en matière de gestion des données personnelles.</p>
+            <a href="https://www.canva.com/design/DAGpIZS-BMY/F146txxvZivtPG1rIFvyEA/view?utm_content=DAGpIZS-BMY" target="_blank">Voir le projet</a>
           </div>
         </div>
       </div>
+
+      <!-- 2024 - Sondage -->
+      <div class="project-item 2024 bg-yellow p-4 rounded-4">
+        <h3>Techniques de sondage et méthodologie de l'enquête :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/enquete.png" alt="enquete" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Dans le cadre du Forum National de l’Économie Sociale et Solidaire & de l’Innovation Sociale, qui s’est déroulé en janvier 2024, une enquête a été menée auprès des participants, sur place et après l’événement. Cette enquête avait pour objectifs de mieux comprendre le comportement des visiteurs, d’évaluer leur satisfaction et d’identifier des axes d’amélioration pour les prochaines éditions du forum. Pour ce faire, nous avons réalisé une présentation portant sur plusieurs aspects : les caractéristiques sociodémographiques des répondants, leur comportement durant le forum, ainsi que leur avis sur l’édition 2024. L’analyse des résultats s’est appuyée sur la création de graphiques à l’aide du logiciel Sphinx, permettant de visualiser les données de manière claire et synthétique.</p>
+            <a href="https://www.canva.com/design/DAGRxYXo6Us/4aVKPGkJr_bpG6HeYA7-ZA/view?utm_content=DAGRxYXo6Us" target="_blank">Voir le projet</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 - Dataviz AcVC -->
+      <div class="project-item 2023 bg-yellow p-4 rounded-4">
+        <h3>Analyse de données, Reporting et datavisualisation:</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/imagemavie.png" alt="acvc" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Ce projet vise à créer un outil dynamique pour analyser les accidents de la vie courante (AcVC) en France, en identifiant leurs caractéristiques et facteurs de risque, ainsi que des mesures de prévention. Nous avons nettoyé et préparé les données avec R, puis cartographié la cohorte pour évaluer sa représentativité par rapport à la population française, en utilisant PowerBI pour les visualisations. Ensuite, nous avons conçu un outil intuitif et automatisé avec Python pour intégrer de nouveaux jeux de données. Enfin, nous avons rédigé deux manuels : un manuel technique sur l'ergonomie de l'outil et un guide d'utilisation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 - Régression -->
+      <div class="project-item 2023 bg-yellow p-4 rounded-4">
+        <h3>Régression des données réelles :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/regressionlin.png" alt="regression" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Pour réaliser ce projet, j'ai d'abord importé et analysé les données d'un fichier CSV afin de comprendre leur structure et de nettoyer les valeurs manquantes. Ensuite, j'ai développé un modèle de prédiction du prix de vente à l'aide de régression linéaire dans Excel, identifiant les variables les plus influentes. J'ai rédigé un texte explicatif incluant des graphiques comme des nuages de points pour illustrer les relations entre les variables. Enfin, j'ai fourni le code R utilisé pour créer le modèle et générer les prédictions, en détaillant chaque étape du processus, de l'importation des données à l'évaluation des performances du modèle.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 - Reporting VBA -->
+      <div class="project-item 2023 bg-yellow p-4 rounded-4">
+        <h3>Création d'un reporting :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/reporting.png" alt="vba" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Pour créer une application de gestion des notes à l'aide d'Excel VBA, j'ai développé une interface utilisateur conviviale permettant de saisir et de modifier les notes des étudiants via des formulaires et des macros. J'ai ensuite mis en place un tableau dynamique qui affiche les notes de manière organisée et se met à jour automatiquement. Pour automatiser la décision du jury à la fin de l'année, j'ai programmé une macro qui calcule les moyennes des étudiants et détermine leur statut d'admission ou de rattrapage selon des critères prédéfinis. Cette solution complète offre une gestion efficace et automatisée des notes des étudiants.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 - BDR MySQL -->
+      <div class="project-item 2023 bg-yellow p-4 rounded-4">
+        <h3>Conception et implémentation BDR :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/bdr.png" alt="mysql" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Pour concevoir et implémenter un système de gestion des notes, j'ai d'abord créé un modèle conceptuel des données (MCD) incluant les entités Étudiant, Cours, et Note, ainsi que leurs relations. J'ai ensuite traduit ce modèle en un schéma relationnel (MLD) et généré le script SQL pour créer les tables correspondantes dans MySQL. Après avoir créé la base de données, j'ai développé une interface graphique en utilisant Tkinter avec Python. Cette interface permet d'importer les données des étudiants à partir d'un fichier Excel, de les insérer dans la base de données, et d'automatiser la gestion des notes et la décision du jury à la fin de l'année scolaire.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 - Challenge Dataviz -->
+      <div class="project-item 2023 bg-yellow p-4 rounded-4">
+        <h3>Challenge DATAVIZ :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/viz.png" alt="challenge dataviz" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Pour analyser les impacts du réchauffement climatique sur les régions montagneuses des Hautes-Alpes et des Hautes-Pyrénées, j'ai d'abord extrait les données climatologiques du réseau de Météo France. En analysant ces données, j'ai évalué les tendances de température et de précipitations sur plusieurs décennies. Ensuite, j'ai utilisé Power BI pour créer des graphes illustrant les changements climatiques, tels que l'augmentation des températures moyennes annuelles et la variation des précipitations saisonnières. Ces graphes montrent clairement l'accélération du réchauffement climatique et ses effets spécifiques sur les régions étudiées, comme la réduction de la couverture neigeuse et les risques accrus d'événements météorologiques extrêmes. Lors de la présentation, j'ai expliqué chaque graphe en détail, mettant en évidence les tendances observées et leurs implications pour l'environnement et les activités humaines dans ces zones montagneuses.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 - Sphinx Enquête -->
+      <div class="project-item 2023 bg-yellow p-4 rounded-4">
+        <h3>Mise en Œuvre de l’enquête :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/sphinx.png" alt="sphinx" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Pour mener à bien l'enquête sur le logement des étudiants de l'IUT de Poitiers, j'ai commencé par créer un questionnaire complet à l'aide du logiciel Sphinx. Ce questionnaire abordait divers aspects du logement, tels que le type de logement, les coûts associés, la distance par rapport à l'IUT, et le niveau de satisfaction. Une fois le questionnaire conçu, j'ai diffusé l'enquête auprès des étudiants. Après la collecte des données, j'ai importé les réponses dans le logiciel Sphinx pour leur analyse statistique. J'ai utilisé les fonctionnalités d'analyse de Sphinx pour calculer les statistiques descriptives, telles que les moyennes et les médianes, et pour effectuer des croisements de données afin de dégager des tendances significatives. Enfin, j'ai utilisé les résultats de cette analyse pour créer un tableau de bord interactif dans Sphinx, offrant une visualisation claire et concise des conclusions de l'enquête. Ce tableau de bord a permis de présenter les principaux résultats, comme la répartition des types de logement et les niveaux de satisfaction, facilitant ainsi la prise de décision et l'identification des axes d'amélioration en matière de logement pour les étudiants de l'IUT de Poitiers.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 - Estimation R -->
+      <div class="project-item 2023 bg-yellow p-4 rounded-4">
+        <h3>Échantillonnage et estimation :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/ech.png" alt="echantillonnage" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">On a réalisé ce projet pour explorer l'incertitude et la précision de l'estimation d'une population, en utilisant un intervalle de confiance basé sur des processus d'échantillonnage. On s'est concentré sur la région Hauts-de-France, en examinant le nombre d'habitants. De plus, on a cherche à vérifier la corrélation entre la prime de voiture et d'autres variables telles que la marque, la formule et l'ancienneté. Tout cela s'est fait à l'aide du langage de programmation R. On a effectué le processus d'échantillonnage en utilisant un sondage aléatoire simple et un échantillonnage par strates. Les estimations ont été comparées aux valeurs réelles pour évaluer leur précision. Enfin, on a utilisé le test d'indépendance du khi-deux pour vérifier la corrélation entre la prime des voitures et diverses autres variables. Un rapport a été rendu pour expliquer les différentes étapes suivies dans ce projet.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 - Martinique Excel -->
+      <div class="project-item 2023 bg-yellow p-4 rounded-4">
+        <h3>Production de données en Entreprise :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/entrepr.png" alt="martinique" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">L'objectif principal de ce projet est d'explorer la situation économique de la Martinique, en se concentrant sur des aspects clés tels que la démographie, le chômage et l'emploi. Pour ce faire, nous avons extrait des données détaillées d'un fichier Excel contenant des informations pertinentes sur ces domaines. Ensuite, nous avons procédé à une analyse approfondie de ces données, en mettant l'accent sur leur signification et leur interprétation. Enfin, nous avons rédigé un rapport exhaustif qui synthétise nos découvertes et présente une vue d'ensemble de la situation socioéconomique actuelle de la Martinique. Ce rapport vise à fournir une compréhension approfondie des tendances économiques et sociales de l'île, en mettant en lumière les défis et les opportunités qui se présentent.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 - Thaïlande -->
+      <div class="project-item 2023 bg-yellow p-4 rounded-4">
+        <h3>Présentation d'un territoire économique et culturel :</h3>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="images/thai.png" alt="thailande" class="img-fluid rounded-3">
+          </div>
+          <div class="col-md-8">
+            <p class="text-dark-emphasis">Dans ce projet, nous avons choisi de présenter la Thaïlande en tant que territoire économique. Nous avons exploré sa situation socio-économique et culturelle, en recherchant des données pertinentes et en les utilisant efficacement pour fournir une analyse détaillée et enrichissante. Le projet se divise en deux parties : la première partie, dédiée à l'analyse socio-économique, couvre la démographie, la situation économique et la géographie de la Thaïlande, et a été présentée en anglais. La seconde partie, consacrée à l'aspect culturel, aborde l'histoire, la culture, l'architecture de la Thaïlande, et présente également un problème majeur auquel le pays est confronté : le surtourisme. Cette partie a été présentée en français.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <br>
   </section>
-
-
-
-
 
   <footer id="footer" class="bg-black text-white py-5">
     <div class="container-sm">
       <div class="row g-md-5 my-5">
         <div class="col-md-5">
-          <p>
-            Pour plus d'informations sur mon travail ou pour toute question, n'hésitez pas à me contacter à l'adresse
-            email ci-dessous
-          </p>
+          <p>Pour plus d'informations sur mon travail ou pour toute question, n'hésitez pas à me contacter à l'adresse email ci-dessous</p>
           <h3>
-            <a href="mailto:contact@yourwebsite.com"
-              class="text-white text-decoration-none">hind.kharbouche@etu.univ-poitiers.fr</a>
+            <a href="mailto:hind.kharbouche@etu.univ-poitiers.fr" class="text-white text-decoration-none">hind.kharbouche@etu.univ-poitiers.fr</a>
           </h3>
         </div>
       </div>
