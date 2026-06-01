@@ -297,3 +297,12 @@ a:hover {
 .text-justify {
     text-align: justify;
 }
+
+.hover-zoom {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.025);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
