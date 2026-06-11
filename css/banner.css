@@ -59,4 +59,7 @@ body {
       margin: 10px 0;
     }
   }
-  
+  .logo img {
+    width: 66px;               /* Petit logo élégant */
+    height: auto;
+}
