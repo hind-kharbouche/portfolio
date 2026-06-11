@@ -24,6 +24,27 @@
   <link rel="stylesheet" href="css/banner.css">
 </head>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-item');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const year = btn.getAttribute('data-year');
+
+        projects.forEach(project => {
+          if (year === "all" || project.classList.contains(year)) {
+            project.style.setProperty('display', 'block', 'important');
+          } else {
+            project.style.setProperty('display', 'none', 'important');
+          }
+        });
+      });
+    });
+  });
+</script>
+
 <body>
 
 <nav class="navbar">
@@ -39,7 +60,26 @@
       <li><a href="bilanperso.html">Bilan Personnel</a></li>
     </ul>
 </nav>
-  <section class="mb-5">
+
+  <section class="my-5">
+    <div class="container">
+      <div class="row g-2 w-100">
+        <div class="col-12 col-md-3">
+          <button class="btn btn-lg btn-outline-dark filter-btn rounded-pill w-100" data-year="all">Tous les projets</button>
+        </div>
+        <div class="col-12 col-md-3">
+          <button class="btn btn-lg btn-outline-success filter-btn rounded-pill w-100" data-year="2025">Session 2025 - 2026</button>
+        </div>
+        <div class="col-12 col-md-3">
+          <button class="btn btn-lg btn-outline-warning filter-btn rounded-pill w-100" data-year="2024">Session 2024 - 2025</button>
+        </div>
+        <div class="col-12 col-md-3">
+          <button class="btn btn-lg btn-outline-danger filter-btn rounded-pill w-100" data-year="2023">Session 2023 - 2024</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <div class="container d-flex flex-column gap-4">
 
       <!-- 2025 - SQL NoSQL -->
